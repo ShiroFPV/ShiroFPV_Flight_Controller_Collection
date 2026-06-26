@@ -127,7 +127,6 @@
 		)
 		(capping no)
 		(filling no)
-		(zone_defaults)
 		(aux_axis_origin 130 190)
 		(pcbplotparams
 			(layerselection 0x00000000_00000000_55555555_5755f55f)
