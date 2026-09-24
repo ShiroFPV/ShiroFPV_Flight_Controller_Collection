@@ -12,7 +12,7 @@ More at **[shirofpv.com/flight-controller](https://shirofpv.com/flight-controlle
 | Board | Size | MCU | Analog OSD | Status |
 |---|---|---|---|---|
 | [**V1** `SFVPF435`](V1_30x30_SFVPF435/) | 30.5 × 30.5 | AT32F435RGT7 | ✅ AT7456 | Released |
-| [**V2** `SFVPF435`](V2_20x20_SFVPF435/) | 20 × 20 | AT32F435, 48-pin | ❌ digital only | 🚧 In development |
+| [**V2** `SFVPF435`](V2_20x20_SFVPF435/) | 20.5 × 20.5 | AT32F435, 48-pin | ❌ digital only | 🚧 In development |
 
 ---
 
