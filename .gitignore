@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# KiCad lock / backup / autosave files
+*.lck
+~*.lck
+*-backups/
+*.kicad_prl
+fp-info-cache
