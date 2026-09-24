@@ -7,6 +7,13 @@ Designed in KiCad, targeted at Betaflight, and licensed so it stays open.
 
 More at **[shirofpv.com/flight-controller](https://shirofpv.com/flight-controller)**
 
+## Boards
+
+| Board | Size | MCU | Analog OSD | Status |
+|---|---|---|---|---|
+| [**V1** `SFVPF435`](V1_30x30_SFVPF435/) | 30.5 × 30.5 | AT32F435RGT7 | ✅ AT7456 | Released |
+| [**V2** `SFVPF435`](V2_20x20_SFVPF435/) | 20 × 20 | AT32F435, 48-pin | ❌ digital only | 🚧 In development |
+
 ---
 
 ## V1 — `SFVPF435` (30.5 × 30.5)
@@ -39,6 +46,24 @@ V1_30x30_SFVPF435/
 
 > Note: `Shematic/` is a typo for `Schematic/` kept as-is so existing links and
 > clones don't break.
+
+---
+
+## V2 — `SFVPF435` (20 × 20) — coming soon
+
+A smaller board for builds a 30.5 stack won't fit. Decided so far:
+
+| | |
+|---|---|
+| **MCU** | AT32F435, 48-pin package |
+| **Mount** | 20 × 20 mm |
+| **Analog OSD** | none — digital video only |
+| **Firmware** | Betaflight |
+
+Dropping the analog OSD chip is what buys the space. Everything else — gyro,
+baro, blackbox, UART count, power stage — is still being worked out.
+
+Details in [`V2_20x20_SFVPF435/`](V2_20x20_SFVPF435/).
 
 ---
 
