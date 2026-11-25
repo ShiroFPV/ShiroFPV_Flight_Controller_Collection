@@ -12,7 +12,7 @@ More at **[shirofpv.com/flight-controller](https://shirofpv.com/flight-controlle
 | Board | Size | MCU | Analog OSD | Status |
 |---|---|---|---|---|
 | [**V1** `SFVPF435`](V1_30x30_SFVPF435/) | 30.5 × 30.5 | AT32F435RGT7 | ✅ AT7456 | Released |
-| [**V2** `SFVPF435`](V2_20x20_SFVPF435/) | 20.5 × 20.5 | AT32F435, 48-pin | ❌ digital only | 🚧 In development |
+| [**V2** `SFVPF435`](V2_20x20_SFVPF435/) | 20.5 × 20.5 | AT32F435CGT7 (48-pin) | ❌ digital only | Released |
 
 ---
 
@@ -49,19 +49,39 @@ V1_30x30_SFVPF435/
 
 ---
 
-## V2 — `SFVPF435` (20 × 20) — coming soon
+## V2 — `SFVPF435` (20 × 20)
 
-A smaller board for builds a 30.5 stack won't fit. Decided so far:
+A compact, modern 20.5 × 20.5 mm flight controller designed specifically for lightweight HD-FPV freestyle and racing builds.
 
 | | |
 |---|---|
-| **MCU** | AT32F435, 48-pin package |
-| **Mount** | 20 × 20 mm |
-| **Analog OSD** | none — digital video only |
+| **MCU** | Artery AT32F435CGT7 (LQFP-48), up to 288 MHz |
+| **Gyro** | ICM-42605 (SPI1, 8 kHz sampling) |
+| **Baro** | SPL07-003 (I2C1, address `0x76`) |
+| **Analog OSD** | **None** — digital video only (HD Zero, DJI O3/O4, Walksnail) |
+| **Motors** | 4x DShot motor pads (M1–M4) on TMR5/TMR3 with Bidirectional DShot (RPM filtering) |
+| **UARTs** | 5x hardware UARTs (Receiver default on UART5, VTX on UART4) |
+| **I2C** | Free I2C1 bus exposed for external compass |
+| **USB** | USB-C |
+| **Mount** | 20.5 × 20.5 mm M3 / M2 with grommets |
 | **Firmware** | Betaflight |
 
-Dropping the analog OSD chip is what buys the space. Everything else — gyro,
-baro, blackbox, UART count, power stage — is still being worked out.
+Dropping the legacy analog OSD chip (AT7456E) saves board space, weight, and eliminates video noise on modern digital setups.
+
+### Layout
+
+```
+V2_20x20_SFVPF435/
+├─ Shematic/          hardware sources — CERN-OHL-S v2
+│  ├─ ShiroFPV_Flight_Controller.kicad_sch    schematic
+│  ├─ ShiroFPV_Flight_Controller.kicad_pcb    PCB layout
+│  ├─ All_Own_Symbols.kicad_sym               custom symbols
+│  ├─ All_Own_Symbols.pretty/                 custom footprints
+│  └─ .glb                                    3D model
+└─ Release/           firmware — GPL-3.0-or-later
+   ├─ config.h                                Betaflight target config
+   └─ SFPVF435V2.hex                          compiled firmware
+```
 
 Details in [`V2_20x20_SFVPF435/`](V2_20x20_SFVPF435/).
 
@@ -84,7 +104,7 @@ The design files are complete — schematic, layout, custom symbols and
 footprints. Open `ShiroFPV_Flight_Controller.kicad_pro` in KiCad 8 or newer,
 export gerbers, and send them to whichever fab you like.
 
-Flash `SFPVF435V1.hex` with the Betaflight Configurator, or build from the
+Flash `SFPVF435V1.hex` or `SFPVF435V2.hex` with the Betaflight Configurator, or build from the
 Betaflight sources using `config.h` as the target definition.
 
 It flies. Mostly.

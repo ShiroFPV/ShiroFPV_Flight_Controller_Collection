@@ -1,0 +1,4 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "All_Own_Symbols") (type "KiCad") (uri "${KIPRJMOD}/All_Own_Symbols.pretty") (options "") (descr "ShiroFPV Custom Footprints"))
+)
